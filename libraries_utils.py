@@ -43,3 +43,7 @@ acr_to_name = {
     'UK':'United Kingdom', 
     'EU15': 'European Union 2015'
 }
+
+def createTableStatement(tableName, columns, types):
+  return f"CREATE TABLE IF NOT EXISTS {tableName} ('{columns[0]}' {types[0]}" + (
+      ", {} {}"*(len(columns)-1)).format(*[i for j in zip(columns[1:], types[1:]) for i in j]) + ")"
